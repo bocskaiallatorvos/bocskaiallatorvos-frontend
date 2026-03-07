@@ -1,0 +1,4 @@
+User-agent: *
+
+Allow: /
+Sitemap: https://bocskaillatorvos.hu/sitemap.xml

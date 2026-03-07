@@ -1,0 +1,48 @@
+{
+  "name": "vite-react-typescript-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite && node fetch-cms.js && node generate-sitemap.js",
+    "build": "vite build && node fetch-cms.js &&  node generate-sitemap.js",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+  },
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^17.1.5",
+    "@devgateway/wp-react-lib": "^0.4.8",
+    "@supabase/supabase-js": "^2.57.4",
+    "axios": "^1.12.2",
+    "lucide-react": "^0.563.0",
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-cookie-consent": "^10.0.1",
+    "react-dom": "^18.3.1",
+    "react-ga4": "^2.1.0",
+    "react-google-recaptcha": "^3.1.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.9.4",
+    "sentence-splitter": "^5.0.0",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@types/react": "^18.3.25",
+    "@types/react-dom": "^18.3.7",
+    "@types/react-google-recaptcha": "^2.1.9",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.18",
+    "contentful": "^11.8.7",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "globals": "^15.9.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^6.3.6"
+  }
+}
