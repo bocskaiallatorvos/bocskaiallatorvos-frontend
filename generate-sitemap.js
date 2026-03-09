@@ -6,7 +6,7 @@ const WP = "https://api.bocskaiallatorvos.hu/wp-json/wp/v2";
 const BASE = "https://bocskaiallatorvos.hu";
 
 async function fetchAll(endpoint) {
-  const res = await fetch(`${WP}/${endpoint}?per_page=100&_fields=slug,modified,categories,meta`);
+  const res = await fetch(`${WP}/${endpoint}?per_page=100&_fields=slug,modified,modified_gmt,categories,meta`);
   return res.json();
 }
 
@@ -31,6 +31,13 @@ function pageIncluded(page) {
   return false;
 }
 
+function formatLastmod(item) {
+  if (!item?.modified_gmt) return null;
+  return new Date(`${item.modified_gmt}Z`).toISOString();
+  // ha csak dátum kell:
+  // return item.modified_gmt.split("T")[0];
+}
+
 async function run() {
   const pages = await fetchAll("pages");
   const posts = await fetchAll("posts");
@@ -39,7 +46,7 @@ async function run() {
     .filter(pageIncluded)
     .map(p => ({
       loc: `${BASE}/${p.slug}`,
-      lastmod: p.modified
+      lastmod: formatLastmod(p),
     }));
 
   const postUrls = posts
@@ -48,7 +55,7 @@ async function run() {
       if (!path) return null;
       return {
         loc: `${BASE}${path}`,
-        lastmod: p.modified
+        lastmod: formatLastmod(p)
       };
     })
     .filter(Boolean);
