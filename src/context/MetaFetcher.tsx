@@ -80,7 +80,7 @@ const MetaFetcher = () => {
                     twitter_title: title,
                     twitter_description: description,
                     twitter_image: ogImageUrl,
-                    robots: 'noindex, nofollow',
+                    robots: 'index, follow',
                 });
 
             } catch (err) {
