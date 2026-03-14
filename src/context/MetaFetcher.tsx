@@ -46,7 +46,7 @@ const MetaFetcher = () => {
 
                 const cacheFile =
                     import.meta.env.MODE === "production"
-                        ? "cms-cache.json"
+                        ? "/cms-cache.json"
                         : "/dist/cms-cache.json";
 
                 const cacheRes = await fetch(cacheFile);
