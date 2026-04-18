@@ -24,7 +24,13 @@ async function run() {
     generatedAt: new Date().toISOString(),
   };
 
-  fs.writeFileSync("./dist/cms-cache.json", JSON.stringify(data, null, 2), "utf8");
+  const path = "./dist/cms-cache.json";
+
+  if (fs.existsSync(path)) {
+    fs.unlinkSync(path);
+    console.log("🗑️ Unlink cms-cache file ready!")
+  }
+  fs.writeFileSync(path, JSON.stringify(data, null, 2), "utf8");
   console.log("✅ CMS cache ready → cms-cache.json");
 }
 
