@@ -40,7 +40,7 @@ function formatLastmod(item) {
 
 async function run() {
   const pages = await fetchAll("pages");
-  const posts = await fetchAll("posts");
+  //const posts = await fetchAll("posts");
 
   const pageUrls = pages
     .filter(pageIncluded)
