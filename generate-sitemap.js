@@ -49,7 +49,7 @@ async function run() {
       lastmod: formatLastmod(p),
     }));
 
-  const postUrls = posts
+  /*const postUrls = posts
     .map(p => {
       const path = mapCategoryToPath(p);
       if (!path) return null;
@@ -60,7 +60,8 @@ async function run() {
     })
     .filter(Boolean);
 
-  const urls = [...pageUrls, ...postUrls];
+  const urls = [...pageUrls, ...postUrls]; */
+  const urls = [...pageUrls]; 
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
