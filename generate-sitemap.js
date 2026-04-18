@@ -86,4 +86,7 @@ Sitemap: ${BASE}/sitemap.xml
   console.log("✔ robots.txt ready");
 }
 
-run();
+run().catch((err) => {
+  console.error("Sitemap generálási hiba:\n", err);
+  process.exit(1);
+});
