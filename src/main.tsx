@@ -4,12 +4,15 @@ import App from './App.tsx';
 import './index.css';
 import { CmsProvider } from "./context/CmsContext";
 import MetaFetcher from './context/MetaFetcher.tsx';
+import { HelmetProvider } from "react-helmet-async";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <MetaFetcher />
-    <CmsProvider>
-      <App />
-    </CmsProvider>
+    <HelmetProvider>
+      <CmsProvider>
+        <App />
+      </CmsProvider>
+    </HelmetProvider>
   </StrictMode>
 );
